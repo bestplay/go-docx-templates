@@ -148,6 +148,7 @@ func (f *SimpleDocxFile) Write(writer io.Writer) error {
 
 // Save (SimpleDocxFile) - сохранить
 func (f *SimpleDocxFile) Save(fileName string) error {
+	defer f.zipFile.Close()
     if f.zipFile != nil {
         if f.document != nil {
             file, err := os.Create(fileName)
