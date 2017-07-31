@@ -152,7 +152,7 @@ func (f *SimpleDocxFile) Save(fileName string) error {
         if f.document != nil {
             file, err := os.Create(fileName)
             if err != nil {
-                return nil
+                return err
             }  
             defer file.Close()
             w := zip.NewWriter(file)
